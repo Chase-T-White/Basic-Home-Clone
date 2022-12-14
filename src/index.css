@@ -1,13 +1,65 @@
-body {
+*,
+*::before,
+*::after {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  padding: 0;
+  box-sizing: inherit;
+}
+
+:root {
+  --clr-black: #252422;
+  --clr-white: #f4f4f4;
+  --clr-pink: #f9cdcd;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  min-height: 100vh;
+  background-color: var(--clr-black);
+  position: relative;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+main {
+  position: relative;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* Preloader */
+
+#preloader {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 25rem;
+  background-color: var(--clr-white);
+  z-index: 100;
+  transition: 0.3s ease-out;
+}
+
+#hidden {
+  display: none;
+}
+
+/* Hero */
+
+.hero {
+  position: relative;
+  height: 100vh;
+  /* cursor: none; */
 }

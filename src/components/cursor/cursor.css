@@ -1,0 +1,13 @@
+.cursor {
+  position: absolute;
+  background-color: var(--clr-white);
+  width: 14rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  z-index: 1;
+  transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
+    0.2 cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(0.8);
+}
