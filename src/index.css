@@ -24,13 +24,17 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  background-color: var(--clr-black);
+  background-color: var(--clr-white);
   position: relative;
   overflow-x: hidden;
 }
 
 main {
   position: relative;
+}
+
+section {
+  margin-bottom: 7.6rem;
 }
 
 a {
@@ -61,5 +65,151 @@ a {
 .hero {
   position: relative;
   height: 100vh;
-  /* cursor: none; */
+  cursor: none;
+  /* isolation: isolate; */
+  overflow: hidden;
+}
+
+.hero__video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Work */
+
+.work__description {
+  display: flex;
+}
+
+.description__text,
+.brand {
+  flex: 0 0 50%;
+}
+
+.description__text p {
+  font-size: 4.8rem;
+  margin-bottom: 3rem;
+}
+
+.brand {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  font-size: 30rem;
+  font-weight: bold;
+  text-align: right;
+}
+
+.case-studies {
+  display: flex;
+  gap: 2rem;
+}
+
+.study {
+  flex: 1 1;
+  text-transform: uppercase;
+}
+
+.study img {
+  width: 100%;
+  height: 75rem;
+  object-fit: cover;
+  object-position: center;
+  margin-bottom: 2rem;
+}
+
+/* Engagements */
+
+.art-thing {
+  margin-bottom: 7.2rem;
+}
+
+.art-thing figure {
+  width: 100%;
+  height: 0.1rem;
+  background-color: var(--clr-black);
+}
+
+.art-thing__numbers {
+  display: flex;
+}
+
+.numbers__01 {
+  flex-grow: 1;
+}
+
+.numbers__02 {
+  flex-grow: 2;
+}
+
+.featured-container {
+  display: flex;
+  width: max-content;
+  overflow-x: scroll;
+}
+
+.featured {
+  width: 30vw;
+}
+
+/* About */
+
+/* News */
+
+.news header {
+  display: flex;
+}
+
+.news header h3 {
+  flex-grow: 1;
+}
+
+.article {
+  display: flex;
+  gap: 3rem;
+  padding: 2rem 0 5rem;
+  border-top: 0.1rem solid var(--clr-black);
+}
+
+.img-container {
+  flex: 0 1 20%;
+}
+
+.img-container img {
+  width: 100%;
+  height: auto;
+}
+
+.article__text {
+  position: relative;
+  flex: 1 1 auto;
+  text-transform: uppercase;
+  color: var(--clr-black);
+}
+
+.article__text-title {
+  font-size: 4.8rem;
+  width: 30ch;
+}
+
+.article__text-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 3.6rem;
+}
+
+.article__text-desc {
+  position: absolute;
+  bottom: 0;
+  font-size: 1.2rem;
+}
+
+/* Footer */
+
+footer {
+  color: var(--clr-white);
+  background-color: var(--clr-black);
 }

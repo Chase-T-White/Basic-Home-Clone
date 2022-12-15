@@ -1,0 +1,8 @@
+.btn {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding: 0.5em 2em;
+  background-color: transparent;
+  border: 0.1rem solid var(--clr-black);
+  border-radius: 50vh;
+}

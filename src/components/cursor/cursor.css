@@ -1,10 +1,24 @@
-.cursor {
+.cursor-container {
   position: absolute;
+  width: max-content;
+  height: auto;
+  background-color: transparent;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.1rem;
+}
+
+.cursor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: var(--clr-white);
   width: 14rem;
   aspect-ratio: 1;
   border-radius: 50%;
-  z-index: 1;
+  z-index: 10;
   transition: 0.5s cubic-bezier(0.75, -1.27, 0.3, 2.33) transform,
     0.2 cubic-bezier(0.75, -1.27, 0.3, 2.33) opacity;
   user-select: none;

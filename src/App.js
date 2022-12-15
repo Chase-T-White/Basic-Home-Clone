@@ -1,12 +1,34 @@
 import { useState, useEffect } from "react";
-import { Cursor, Navbar } from "./components";
+import { Cursor, Navbar, Button } from "./components";
+import video from "./assets/practice-vid.mp4";
+import { caseStudies, featuredEngagements, news } from "./data/data";
+import { HiArrowRight } from "react-icons/hi";
 
 function App() {
   const [cursorPosition, setCursorPosition] = useState("");
   const [isLoad, setIsLoad] = useState(false);
+  // const [isMousePresent, setIsMousePresent] = useState(false);
+
   const moveCursor = (e) => {
-    const newCursorPosition = { top: e.pageY - 70, left: e.pageX - 70 };
+    const newCursorPosition = {
+      top: e.pageY - 70,
+      left: e.pageX - 70,
+      transform: "",
+    };
     return setCursorPosition(newCursorPosition);
+  };
+
+  const staticMouse = () => {
+    const staticCursor = {
+      top: 50 + "%",
+      left: 50 + "%",
+      transform: "translate(-50%, -50%)",
+    };
+    return setCursorPosition(staticCursor);
+  };
+
+  const navToggle = () => {
+    return console.log("hello");
   };
 
   useEffect(() => {
@@ -21,41 +43,40 @@ function App() {
 
       <Navbar />
 
-      <section className='hero' onMouseMove={(e) => moveCursor(e)}>
+      <section
+        className='hero'
+        onMouseMove={(e) => moveCursor(e)}
+        onMouseLeave={staticMouse}
+      >
+        <video className='hero__video' autoPlay loop muted>
+          <source src={video} type='video/mp4' />
+        </video>
         <Cursor cursorPosition={cursorPosition} />
       </section>
 
       <section className='work'>
-        <header>
-          <div className='description'>
+        <header className='work__description'>
+          <div className='description__text'>
             <p>
               Basic/Dept<sup>®</sup> is a global branding and digital design
               agency building products, services, and eCommerce experiences that
               turn cultural values into company value.
             </p>
-            <div className='brand'>B/D®</div>
+            <Button text={"see the work"} />
           </div>
+          <div className='brand'>B/D®</div>
         </header>
 
         <div className='case-studies'>
-          <div className='case'>
-            <img src='' alt='' />
-            <h4>Patagonia</h4>
-            <p>An ecommerce experience driven by patagonia's brand mission</p>
-          </div>
-          <div className='case'>
-            <img src='' alt='' />
-            <h4>Wilson</h4>
-            <p>A century-old sports brand finding its place in culture</p>
-          </div>
-          <div className='case'>
-            <img src='' alt='' />
-            <h4>Google Store</h4>
-            <p>
-              An ecommerce experience helping google bring its hardware to
-              people across the globe
-            </p>
-          </div>
+          {caseStudies.map((study) => {
+            return (
+              <div key={study.id} className='study'>
+                <img src={study.image} alt={study.company} />
+                <h4>{study.company}</h4>
+                <p>{study.desc}</p>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -63,14 +84,26 @@ function App() {
         <div className='art-thing'>
           <figure></figure>
           <div className='art-thing__numbers'>
-            <div>01</div>
-            <div>/05</div>
-            <div></div>
+            <div className='numbers__01'>01</div>
+            <div className='numbers__02'>/05</div>
+            <div>where dot will go</div>
           </div>
-          <h2>
-            Featured<br></br>Engagements
-          </h2>
-          <div className='featured-container'></div>
+        </div>
+        <h2>
+          Featured<br></br>Engagements
+        </h2>
+        <div className='featured-container'>
+          {featuredEngagements.map((featured) => {
+            return (
+              <div key={featured.id} className='featured'>
+                <h4>{featured.logo}</h4>
+                <div className='featured__text'>
+                  <h5>{featured.company}</h5>
+                  <p>{featured.desc}</p>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </section>
 
@@ -82,11 +115,32 @@ function App() {
             <span className='about__dot'></span> connect w/ culture
           </h2>
           <p>adweek (agency spotlight)</p>
-          <button className='btn'>About Us</button>
+          <Button text={"about us"} />
         </div>
       </section>
 
-      <section className='news'></section>
+      <section className='news'>
+        <header>
+          <h3>Featured News</h3>
+          <Button text={"view all"} />
+        </header>
+        {news.map((article) => {
+          return (
+            <div key={article.id} className='article'>
+              <div className='img-container'>
+                <img src={article.image} alt='' />
+              </div>
+              <a href='#' className='article__text'>
+                <p className='article__text-title'>{article.title}</p>
+                <HiArrowRight className='article__text-btn' />
+                <p className='article__text-desc'>
+                  <span>{article.type}</span> {article.date}
+                </p>
+              </a>
+            </div>
+          );
+        })}
+      </section>
 
       <footer>
         <div className='footer__main-nav'>
