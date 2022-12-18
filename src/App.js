@@ -10,7 +10,9 @@ function App() {
   const [cursorPosition, setCursorPosition] = useState("");
   const [isLoad, setIsLoad] = useState(false);
   // const [isMousePresent, setIsMousePresent] = useState(false);
-  const { ref: myRef, inView: myElementIsVisible } = useInView();
+  const { ref: myRef, inView: myElementIsVisible } = useInView({
+    threshold: 0.3,
+  });
 
   // const myRef = useRef();
   // const [myElementIsVisible, setMyElementIsVisible] = useState();
@@ -53,7 +55,7 @@ function App() {
 
   return (
     <main className={myElementIsVisible ? "dark-mode" : ""}>
-      <div id={isLoad ? "hidden" : "preloader"}>B/D®</div>
+      <div class={isLoad ? "preloader hidden" : "preloader"}>B/D®</div>
 
       <Navbar />
 
@@ -167,8 +169,8 @@ function App() {
             <div className='row'>
               <h4>b/d®</h4>
               <p>
-                we collaborate with ambitious brands and people. let's build.{" "}
-                <a>biz@basicagency.com</a>
+                We collaborate with ambitious brands and<br></br>people. let's
+                build. <a>biz@basicagency.com</a>
               </p>
             </div>
             <div className='row'>
@@ -176,15 +178,24 @@ function App() {
                 <label htmlFor=''>
                   <span className='footer__dot'></span> stay in the know
                 </label>
-                <input type='email' name='' id='' placeholder='email address' />
-                <button type='submit'></button>
+                <div className='inline'>
+                  <input
+                    type='email'
+                    name=''
+                    id=''
+                    placeholder='email address'
+                  />
+                  <button type='submit' className='form__btn'>
+                    <HiArrowRight />
+                  </button>
+                </div>
               </form>
-              <ul className='footer__links'>
+              <ul className='footer__links-list'>
                 <li>
                   <p>
                     <span className='footer__dot'></span> social
                   </p>
-                  <ul className='footer__links-socials'>
+                  <ul className='footer__links'>
                     <li>instagram</li>
                     <li>twitter</li>
                     <li>linkedIn</li>
@@ -195,7 +206,7 @@ function App() {
                   <p>
                     <span className='footer__dot'></span> initiatives
                   </p>
-                  <ul className='footer__links-initiatives'>
+                  <ul className='footer__links'>
                     <li>crafted</li>
                     <li>applied</li>
                     <li>brandbeats</li>
@@ -207,7 +218,7 @@ function App() {
                   <p>
                     <span className='footer__dot'></span> offices
                   </p>
-                  <ul className='footer__links-offices'>
+                  <ul className='footer__links'>
                     <li>san diego - CA</li>
                     <li>new york - NY</li>
                     <li>bay area - CA</li>
@@ -227,7 +238,13 @@ function App() {
               easy to understand, impossible to ignore.<sup>tm</sup>
             </p>
             <p>
-              <a href=''>terms</a>, <a href=''>privacy policy</a>
+              <a href='#' className='footer__legal-link'>
+                terms
+              </a>
+              ,{" "}
+              <a href='#' className='footer__legal-link'>
+                privacy policy
+              </a>
             </p>
           </div>
         </footer>
