@@ -12,11 +12,6 @@
   z-index: 5;
 }
 
-.logo,
-.nav__links {
-  flex-grow: 1;
-}
-
 .logo {
   font-size: 1.8rem;
   font-weight: bold;
@@ -26,6 +21,7 @@
   display: flex;
   gap: 5rem;
 
+  margin-inline: auto;
   list-style: none;
   font-size: 1.4rem;
   font-weight: bold;
